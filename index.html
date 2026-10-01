@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+  <meta name="theme-color" content="#14181f">
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="Tâches et rappels simples, avec échéances, répétition et pastille sur l'icône -- tout reste sur votre appareil.">
+  <title>Rappels</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="rap-splash" class="rap-splash"><img src="icons/icon-192.png" alt=""><span>Rappels</span></div>
+
+  <div class="rap-app">
+    <header class="rap-entete">
+      <h1>✅ Rappels</h1>
+      <button type="button" class="rap-icone-btn" id="rap-reglages-btn" title="Réglages" aria-label="Réglages">⚙️</button>
+    </header>
+    <input type="search" id="rap-recherche" class="rap-recherche" placeholder="Rechercher une tâche…" aria-label="Rechercher">
+    <main id="rap-liste" class="rap-liste"></main>
+    <button type="button" class="rap-ajout" id="rap-ajout-btn" title="Ajouter une tâche" aria-label="Ajouter une tâche">＋</button>
+  </div>
+
+  <!-- Ajout / modification -->
+  <dialog id="rap-form" class="rap-dialog">
+    <form method="dialog" id="rap-form-corps">
+      <h2 id="rap-form-titre">Nouvelle tâche</h2>
+      <label>Titre <input type="text" id="rap-f-titre-champ" required maxlength="140" placeholder="Qu'est-ce qu'il y a à faire ?"></label>
+      <div class="rap-deux">
+        <label>Date (optionnelle) <input type="date" id="rap-f-date"></label>
+        <label id="rap-f-heure-zone" hidden>Heure <input type="time" id="rap-f-heure"></label>
+      </div>
+      <label id="rap-f-recurrence-zone" hidden>Répétition <select id="rap-f-recurrence"></select></label>
+      <label class="rap-case"><input type="checkbox" id="rap-f-important"> ★ Important</label>
+      <label>Notes (optionnel) <textarea id="rap-f-notes" rows="2" maxlength="500"></textarea></label>
+      <div class="rap-boutons">
+        <button type="button" id="rap-f-supprimer" class="rap-danger" hidden>🗑️ Supprimer</button>
+        <button type="button" id="rap-f-annuler" class="rap-secondaire">Annuler</button>
+        <button type="submit" class="rap-primaire">Enregistrer</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Réglages -->
+  <dialog id="rap-reglages" class="rap-dialog">
+    <h2>Réglages</h2>
+    <section>
+      <h3>Apparence</h3>
+      <label>Thème
+        <select id="rap-theme">
+          <option value="auto">Automatique (suit le téléphone)</option>
+          <option value="sombre">Sombre</option>
+          <option value="clair">Clair</option>
+        </select>
+      </label>
+    </section>
+    <section>
+      <h3>Notifications</h3>
+      <p class="rap-aide" id="rap-notif-etat"></p>
+      <p class="rap-aide">Sans serveur, impossible de notifier appli totalement fermée : une pastille sur l'icône reste visible même dans ce cas.</p>
+      <button type="button" id="rap-notif-btn" class="rap-large">🔔 Activer les notifications</button>
+    </section>
+    <section>
+      <h3>Ménage</h3>
+      <button type="button" id="rap-nettoyer-btn" class="rap-large">🧹 Supprimer les tâches terminées</button>
+    </section>
+    <section>
+      <h3>Sauvegarde</h3>
+      <p class="rap-aide">Crée un lien de sauvegarde à conserver (mail à toi-même, note…) pour tout retrouver sur un autre appareil.</p>
+      <button type="button" id="rap-sauvegarde-btn" class="rap-large">💾 Créer un lien de sauvegarde</button>
+      <p class="rap-aide" id="rap-sauvegarde-retour" hidden></p>
+    </section>
+    <section>
+      <h3>À propos</h3>
+      <p class="rap-aide" id="rap-version"></p>
+      <p class="rap-aide" id="rap-mention"></p>
+    </section>
+    <div class="rap-boutons"><button type="button" id="rap-reglages-fermer" class="rap-primaire">Fermer</button></div>
+  </dialog>
+
+  <div id="rap-message" class="rap-message" role="status" hidden></div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
