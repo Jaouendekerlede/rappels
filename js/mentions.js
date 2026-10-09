@@ -2,8 +2,8 @@
 
 export const PROPRIETAIRE = "Jean-Luc RIO";
 export const ANNEE = 2026;
-export const VERSION = 1;
-export const VERSION_TEXTE = "Version 1 : tâches avec date/heure et répétition, tri par échéance, pastille sur l'icône, notifications quand l'appli est ouverte, lien de sauvegarde";
+export const VERSION = 2;
+export const VERSION_TEXTE = "Version 2 : une tâche peut être créée directement depuis le menu Partager du téléphone (ex : une fiche de NoticeKona). Version 1 : tâches avec date/heure et répétition, tri par échéance, pastille sur l'icône, notifications quand l'appli est ouverte, lien de sauvegarde";
 
 export const MENTION_COURTE = `© ${ANNEE} ${PROPRIETAIRE} — Tous droits réservés`;
 

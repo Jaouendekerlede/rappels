@@ -2,7 +2,7 @@
 // jour publiée est prise tout de suite), la copie ne sert que sans réseau.
 // Les tâches sont dans le localStorage : rien d'autre à mettre en cache.
 
-const CACHE_NOM = "rappels-v1";
+const CACHE_NOM = "rappels-v2";
 const FICHIERS_COQUILLE = ["./", "./index.html", "./style.css", "./manifest.json", "./js/main.js", "./js/liste.js", "./js/formulaire.js", "./js/reglages.js", "./js/taches.js", "./js/recurrence.js", "./js/notifications.js", "./js/restauration.js", "./js/storage.js", "./js/theme.js", "./js/utils.js", "./js/config.js", "./js/mentions.js", "./icons/icon-192.png", "./icons/icon-512.png"];
 
 self.addEventListener("install", (event) => {

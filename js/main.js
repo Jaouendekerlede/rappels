@@ -26,6 +26,17 @@ async function demarrer() {
   demarrerVerifications();
   majBadge();
 
+  // Reçu via le menu Partager du téléphone (ex: NoticeKona -> Partager une
+  // fiche), ou via un lien direct construit par une autre appli -- ouvre
+  // directement une nouvelle tâche préremplie. Demande explicite du
+  // 2026-10-09.
+  const parametres = new URLSearchParams(location.search);
+  const titrePartage = parametres.get("titre");
+  if (titrePartage) {
+    history.replaceState(null, "", location.pathname);
+    ouvrirFormulaire(null, { titrePredefini: titrePartage, notesPredefinies: parametres.get("texte") || "" });
+  }
+
   const splash = $("rap-splash");
   splash.classList.add("fini");
   setTimeout(() => splash.remove(), 400);

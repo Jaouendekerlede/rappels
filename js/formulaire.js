@@ -8,10 +8,10 @@ import { $, aujourdhui } from "./utils.js";
 let idEnCours = null;
 let surChangement = () => {};
 
-export function ouvrirFormulaire(id = null, { datePredefinies } = {}) {
+export function ouvrirFormulaire(id = null, { datePredefinies, titrePredefini, notesPredefinies } = {}) {
   idEnCours = id;
   const existante = id ? listerTaches().find((t) => t.id === id) : null;
-  const tache = existante ?? { ...nouvelleTacheVide(), date: datePredefinies ?? "" };
+  const tache = existante ?? { ...nouvelleTacheVide(), date: datePredefinies ?? "", titre: titrePredefini ?? "", notes: notesPredefinies ?? "" };
   $("rap-form-titre").textContent = existante ? "Modifier la tâche" : "Nouvelle tâche";
   $("rap-f-supprimer").hidden = !existante;
   $("rap-f-titre-champ").value = tache.titre;
